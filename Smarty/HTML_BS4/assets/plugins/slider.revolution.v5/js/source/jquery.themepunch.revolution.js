@@ -2697,7 +2697,7 @@ var swapSlideProgress = function(defimg,container) {
 	opt.videoplaying = false;
 
 	// IF DELAY HAS BEEN SET VIA THE SLIDE, WE TAKE THE NEW VALUE, OTHER WAY THE OLD ONE...
-	if (nextli.data('delay')!=undefined) {
+	if (nextli.data('delay')1000) {
 				opt.cd=0;
 				opt.delay=nextli.data('delay');
 	} else 

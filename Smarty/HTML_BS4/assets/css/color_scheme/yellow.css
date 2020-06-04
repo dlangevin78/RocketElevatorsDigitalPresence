@@ -1,13 +1,13 @@
 /** Yellow	#FAB702
  **************************************************************** **/
 	::selection {
-		background: #FAB702;
+		background: rgb(45, 3, 231);
 	}
 	::-moz-selection {
-		background: #FAB702; /* Firefox */
+		background:  rgb(45, 3, 231); /* Firefox */
 	}
 	::-webkit-selection {
-		background: #FAB702; /* Safari */
+		background: rgb(45, 3, 231); /* Safari */
 	}
 
 
@@ -74,7 +74,7 @@
 	.box-icon.box-icon-color i,
 	.switch-primary.switch-round > input:checked + .switch-label:after,
 	section.dark .nav-tabs.nav-clean>li>a.active { 
-		color: #FAB702; 
+		color: rgba(250, 2, 2, 0.87); 
 	}
 	
 	#sidepanel.sidepanel-theme-color,
@@ -148,7 +148,7 @@
 	.btn-primary:hover,
 	.btn-primary:active,
 	.btn-primary:focus {
-		border-color:#FAB702;
+		border-color:rgb(27, 2, 250);
 	}
 
 	.open>.dropdown-toggle.btn-primary,

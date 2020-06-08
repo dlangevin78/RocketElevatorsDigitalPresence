@@ -149,38 +149,38 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li class="active"><!-- HOME -->
-										<a href="RocketElevatorsHomePage.html">
+										<a href="reindex.html">
 											HOME
 										</a>
 									</li>
 									<li><!-- SERVICES -->
-										<a href="RocketElevatorsHomePage.html#services">
+										<a href="reindex.html#services">
 											SERVICES
 										</a>
 									</li>
 									<li><!-- PORTFOLIO -->
-										<a href="RocketElevatorsHomePage.html#portfolio">
+										<a href="reindex.html#portfolio">
 											PORTFOLIO
 										</a>
 									</li>
 									<li><!-- NEWS -->
-										<a href="RocketElevatorsHomePage.html#news">
+										<a href="reindex.html#news">
 											NEWS
 										</a>
 									</li>
 									<li><!-- OVERVIEW -->
-										<a href="RocketElevatorsHomePage.html#overview">
+										<a href="reindex.html#overview">
 											OVERVIEW
 										</a>
 									</li>
 									<li><!-- CLIENTS -->
-										<a href="RocketElevatorsHomePage.html#clients">
+										<a href="reindex.html#clients">
 											CLIENTS
 										</a>
 									</li>									
 									</li>
 									<li><!-- CONTACT -->
-										<a href="RocketElevatorsHomePage.html#contact">
+										<a href="reindex.html#contact">
 											CONTACT
 										</a>
 									</li>
@@ -202,7 +202,7 @@
 
 
 			<!-- QUOTE -->
-			<section id="contact">
+			<section id="quote">
 				<div class="container">
 
 					<header class="text-center mb-60">
@@ -271,12 +271,12 @@
 
 										<div class="col-md-4">
 											<label for="contact_department">Please select a Building type</label>
-											<select class="form-control pointer" name="contact[department]" id = "selectMe">
+											<select class="form-control pointer" name="Building_type_selector" id = "selectMe">
 												<option value="">--- Select ---</option>
-												<option value="Residential">Residential</option>
-												<option value="Commercial">Commercial</option>
-												<option value="Corporative">Corporative</option>
-												<option value="Hybrid">Hybrid</option>
+												<option value="residential" id = 'Residential-choice'>Residential</option>
+												<option value="commercial" id = 'Commercial-choice'>Commercial</option>
+												<option value="corporative" id = 'Corporative-choice'>Corporative</option>
+												<option value="hybrid" id = 'Hybrid-choice'>Hybrid</option>
 											</select>
 										</div>
 																					
@@ -284,171 +284,118 @@
 									<div id = "Residential" class = "building_type">
 										Residential Quote
 										<div class = "col-md-2">
-											<label for="aptnum">Number of appartements</label>
-											<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
+											<label for="aptnum">Number of appartements  *</label>
+											<input required type="parseInt" value="" class="form-control" name="res_apt_input" id="aptnum">
 										</div>
 										<div class="col-md-2">
-											<label for="floornum">Number of floors in the building</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="floornum">
+											<label for="floornum">Number of floors in the building  *</label>
+											<input required type="text" value="" class="form-control" name="res_floor_input" id="residential_floor_num">
 										</div>
 										<div class="col-md-2">
-											<label for="basementnum">Number of Basements</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="basementnum">
+											<label for="basementnum">Number of Basements  *</label>
+											<input required type="text" value="" class="form-control" name="res_basement_input" id="residential_basement_num">
 										</div>	
+										<br><br>
+										<div class="col-md-2">
+										<button type="submit" class="btn btn-primary" id= 'residential-submit'><i class="fa fa-check"></i> SUBMIT</button>
+										 
+										
+										</div>
 									</div>
 									
 									<div id = "Commercial" class = "building_type">
 										Commercial Quote
 										<div class = "col-md-2">
-											<label for="aptnum">Number of shops in the building</label>
-											<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
+											<label for="shopnum">Number of shops in the building  *</label>
+											<input required type="text" value="" class="form-control" name="com_shop_input" id="commercial_shop_num">
 										</div>
 										<div class="col-md-2">
-											<label for="contact:project">Number of floors in the building</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
+											<label for="floornum">Number of floors in the building  *</label>
+											<input required type="text" value="" class="form-control" name="com_floor_input" id="commercial_floor_num">
 										</div>
 										<div class="col-md-2">
-											<label for="contact:project">Number of Basements</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
+											<label for="basementnum">Number of Basements  *</label>
+											<input required type="text" value="" class="form-control" name="com_basement_input" id="commercial_basement_num">
 										</div>
 										<div class = "col-md-2">
-											<label for="aptnum">Number of parking spaces available</label>
-											<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
+											<label for="parkingnum">Number of parking spaces available  *</label>
+											<input required type="text" value="" class="form-control" name="com_parking_input" id="commercial_parking_num">
 										</div>	
 										<div class="col-md-2">
-											<label for="contact:project">Number of elevator shaft to deploy</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
+											<label for="shaftnum">Number of elevator shaft to deploy  *</label>
+											<input required type="text" value="" class="form-control" name="com_shaft_input" id="commercial_shaft_num">
+										</div>
+										<br><br>
+										<div class="col-md-2">
+										<button type="submit" class="btn btn-primary" id='commercial-submit'><i class="fa fa-check"></i> SUBMIT</button>
 										</div>
 
 									</div>
 
 									<div id = "Corporative" class = "building_type">
 										Corporative Quote
+										<div class = "col-md-2">
+											<label for="aptnum">Number of Separate Tenant Companies  *</label>
+											<input required type="text" value="" class="form-control" name="corp_tenant_input" id="corporative_tenant_num">
+										</div>
+										<div class="col-md-2">
+											<label for="contact:project">Number of floors in the building  *</label>
+											<input required type="text" value="" class="form-control" name="corp_floor_input" id="corporative_floor_num">
+										</div>
+										<div class="col-md-2">
+											<label for="contact:project">Number of Basements  *</label>
+											<input required type="text" value="" class="form-control" name="corp_basement_input" id="corporative_basement_num">
+										</div>
+										<div class = "col-md-2">
+											<label for="aptnum">Number of parking spaces available  *</label>
+											<input required type="text" value="" class="form-control" name="corp_parking_input" id="corporative_parking_num">
+										</div>	
+										<div class="col-md-2">
+											<label for="contact:project">Maximum number of occupants by floor  *</label>
+											<input required type="text" value="" class="form-control" name="corp_occupancy_input" id="corporative_occupancy_num">
+										</div>
+										<br><br>
+										<div class="col-md-2">
+										<button type="submit" class="btn btn-primary" id='corporative-submit'><i class="fa fa-check"></i> SUBMIT</button>
+										</div>
 									</div>
 
 									<div id = "Hybrid" class = "building_type">
 										Hybrid Quote
-									</div>
-									<br><br><br><br><br>
-
-
-
-
-									<div class = "row">
-										
-											<div class = "col-md-2">
-												<label for="aptnum">Number of appartements</label>
-												<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
-											</div>
-											
-											<div class="col-md-2">
-												<label for="floornum">Number of floors in the building</label>
-												<input required type="text" value="" class="form-control" name="contact[project][required]" id="floornum">
-												</div>
-											<div class="col-md-2">
-												<label for="basementnum">Number of Basements</label>
-												<input required type="text" value="" class="form-control" name="contact[project][required]" id="basementnum">
-												</div>	
-											<div class="col-md-2">
-													<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-											</div>
-											
-									</div>
-									<p>Commercial Quote</p>	
-									<div class="row">
-											
-											<div class = "col-md-2">
-												<label for="aptnum">Number of shops in the building</label>
-												<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
-											</div>
-											
-											<div class="col-md-2">
-												<label for="contact:project">Number of floors in the building</label>
-												<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-											</div>
-											<div class="col-md-2">
-												<label for="contact:project">Number of Basements</label>
-												<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-											</div>	
-											<div class = "col-md-2">
-												<label for="aptnum">Number of parking spaces available</label>
-												<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
-											</div>
-											
-											<div class="col-md-2">
-												<label for="contact:project">Number of elevator shaft to deploy</label>
-												<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-											</div>
-													<div class="col-md-2">
-														<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-													</div>
-											</div>
-											
-									</div>
-									<p>Corporative Quote</p>
-									<div class="row">
 										<div class = "col-md-2">
-											<label for="aptnum">Number of Separate Tenant Companies</label>
-											<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
-										</div>
-										
-										<div class="col-md-2">
-											<label for="contact:project">Number of floors in the building</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
+											<label for="aptnum">Number of shops in the building  *</label>
+											<input required type="text" value="" class="form-control" name="hybr_shop_input" id="hybrid_shop_num">
 										</div>
 										<div class="col-md-2">
-											<label for="contact:project">Number of Basements</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
+											<label for="contact:project">Number of floors in the building  *</label>
+											<input required type="text" value="" class="form-control" name="hybr_floor_input" id="hybrid_floor_num">
+										</div>
+										<div class="col-md-2">
+											<label for="contact:project">Number of Basements  *</label>
+											<input required type="text" value="" class="form-control" name="hybr_basement_input" id="hybrid_basement_num">
+										</div>
+										<div class = "col-md-2">
+											<label for="aptnum">Number of parking spaces available  *</label>
+											<input required type="text" value="" class="form-control" name="hybr_parking_input" id="hybrid_parking_num" >
 										</div>	
-										<div class = "col-md-2">
-											<label for="aptnum">Number of parking spaces available</label>
-											<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
+										<div class="col-md-2">
+											<label for="contact:project">Maximum number of occupants by floor  *</label>
+											<input required type="text" value="" class="form-control" name="hybr_occupancy_input" id="hybrid_occupancy_num">
 										</div>
-										
 										<div class="col-md-2">
-											<label for="contact:project">Maximum number of occupants by floor</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-											</div>
-										
+											<label for="contact:project">Number of hours of building activity  *</label>
+											<input required type="text" value="" class="form-control" name="hybr_hours_input" id="hybrid_hours_num">
+										</div>
+										<br><br>
 										<div class="col-md-2">
-												<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-										</div>	
+										<button type="submit" class="btn btn-primary" id='hybrid-submit'><i class="fa fa-check"></i> SUBMIT</button>
+										</div>
 									</div>
-									<p>Hybrid Quote</p>
-									<div class="row">
-										<div class = "col-md-2">
-											<label for="aptnum">Number of shops in the building</label>
-											<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
-										</div>
-										
-										<div class="col-md-2">
-											<label for="contact:project">Number of floors in the building</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-										</div>
-										<div class="col-md-2">
-											<label for="contact:project">Number of Basements</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-										</div>	
-										<div class = "col-md-2">
-											<label for="aptnum">Number of parking spaces available</label>
-											<input required type="text" value="" class="form-control" name="contact[phone][required]" id="aptnum">
-										</div>
-										
-										<div class="col-md-2">
-											<label for="contact:project">Maximum number of occupants by floor</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-											</div>
-										<div class="col-md-2">
-											<label for="contact:project">Number of hours of building activity</label>
-											<input required type="text" value="" class="form-control" name="contact[project][required]" id="contact:project">
-											</div>
-											<div class="col-md-2">
-												<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
-											</div>
-											<div class="col-md-12">
-												<label for="contact:message">Message *</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
-											</div>
+									<br><br>
+									
+									<br><br><br><br><br><br><br><br><br><br>
+
+
 									</div>
 									<div class="row">
 											<div class="col-md-12">
@@ -461,13 +408,14 @@
 											</div>
 									</div>
 
-								</fieldset>
-
-								<div class="row">
-									<div class="col-md-12">
-										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
+									<div>
+										PLEASE CHOOSE ONE OF OUR PRODUCT RANGE PLAN:
 									</div>
-								</div>
+
+									<br><br><br>
+								</fieldset>
+									<br><br><br>
+								
 							</form>
 
 						</div>
@@ -477,7 +425,11 @@
 						
 
 					</div>
-
+					<div class="row">
+						<div class="col-md-12">
+							<button type="submit" class="btn btn-primary" href="reindex.html#contact"><i class="fa fa-check"></i> CONTACT US</button>
+						</div>
+					</div>
 				</div>
 			</section>
 			<!-- /QUOTE -->
@@ -567,7 +519,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
-		<script src = "assets/js/quote.js";></script>
+		<script src = "assets/js/quote.js";></script>	<!---Fichier créé pour le quote du site>`
 		
 
 		<!-- REVOLUTION SLIDER -->
@@ -578,33 +530,7 @@
 		<!-- PAGELEVEL SCRIPTS -->
 		<script src="assets/js/contact.js"></script>
 
-		<!-- 
-			GMAP.JS 
-			http://hpneo.github.io/gmaps/
-		-->
-		<script src="//maps.google.com/maps/api/js?key=AIzaSyCqCn84CgZN6o1Xc3P4dM657HIxkX3jzPY"></script>
-		<script src="assets/plugins/gmaps.js"></script>
-		<script>
-
-			jQuery(document).ready(function(){
-
-				/**
-					@BASIC GOOGLE MAP
-				**/
-				var map2 = new GMaps({
-					div: '#map2',
-					lat: -12.043333,
-					lng: -77.028333,
-					scrollwheel: false
-				});
-
-				var marker = map2.addMarker({
-					lat: -12.043333,
-					lng: -77.028333,
-					title: 'Company, Inc.'
-				});
-
-			});
+	
 
 		</script>
 	</body>

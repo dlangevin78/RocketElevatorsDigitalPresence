@@ -209,6 +209,7 @@
 						<h2>Get a Quote</h2>
 						<p class="lead font-lato">Please fill out the online form to receive a custom quote. One of our representatives will contact you within 48 hours. * Indicates a required field.</p>
 						<hr />
+						
 					</header>
 
 
@@ -270,9 +271,9 @@
 										
 
 										<div class="col-md-4">
-											<label for="contact_department">Please select a Building type</label>
+											<label for="building-type">Please select a Building type</label>
 											<select class="form-control pointer" name="Building_type_selector" id = "selectMe">
-												<option value="">--- Select ---</option>
+												<option value="0">--- Select ---</option>
 												<option value="residential" id = 'Residential-choice'>Residential</option>
 												<option value="commercial" id = 'Commercial-choice'>Commercial</option>
 												<option value="corporative" id = 'Corporative-choice'>Corporative</option>
@@ -285,50 +286,49 @@
 										Residential Quote
 										<div class = "col-md-2">
 											<label for="aptnum">Number of appartements  *</label>
-											<input required type="parseInt" value="" class="form-control" name="res_apt_input" id="aptnum">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="res_apt_input" id="aptnum">
 										</div>
 										<div class="col-md-2">
 											<label for="floornum">Number of floors in the building  *</label>
-											<input required type="text" value="" class="form-control" name="res_floor_input" id="residential_floor_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="res_floor_input" id="residential_floor_num">
 										</div>
 										<div class="col-md-2">
 											<label for="basementnum">Number of Basements  *</label>
-											<input required type="text" value="" class="form-control" name="res_basement_input" id="residential_basement_num">
-										</div>	
-										<br><br>
-										<div class="col-md-2">
-										<button type="submit" class="btn btn-primary" id= 'residential-submit'><i class="fa fa-check"></i> SUBMIT</button>
-										 
-										
+											<input  min = 0 required type="number" placeholder="0" class="form-control" name="res_basement_input" id="residential_basement_num">
 										</div>
+										
+										<br><br>
+										
 									</div>
 									
 									<div id = "Commercial" class = "building_type">
 										Commercial Quote
 										<div class = "col-md-2">
 											<label for="shopnum">Number of shops in the building  *</label>
-											<input required type="text" value="" class="form-control" name="com_shop_input" id="commercial_shop_num">
+											<input  min = 0 required type="number" placeholder="0" class="form-control" name="com_shop_input" id="commercial_shop_num">
 										</div>
 										<div class="col-md-2">
 											<label for="floornum">Number of floors in the building  *</label>
-											<input required type="text" value="" class="form-control" name="com_floor_input" id="commercial_floor_num">
+											<input  min = 0 required type="number" placeholder="0" class="form-control" name="com_floor_input" id="commercial_floor_num">
 										</div>
 										<div class="col-md-2">
 											<label for="basementnum">Number of Basements  *</label>
-											<input required type="text" value="" class="form-control" name="com_basement_input" id="commercial_basement_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_basement_input" id="commercial_basement_num">
 										</div>
 										<div class = "col-md-2">
 											<label for="parkingnum">Number of parking spaces available  *</label>
-											<input required type="text" value="" class="form-control" name="com_parking_input" id="commercial_parking_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_parking_input" id="commercial_parking_num">
 										</div>	
 										<div class="col-md-2">
 											<label for="shaftnum">Number of elevator shaft to deploy  *</label>
-											<input required type="text" value="" class="form-control" name="com_shaft_input" id="commercial_shaft_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_shaft_input" id="commercial_shaft_num">
 										</div>
 										<br><br>
-										<div class="col-md-2">
-										<button type="submit" class="btn btn-primary" id='commercial-submit'><i class="fa fa-check"></i> SUBMIT</button>
-										</div>
+										
+										<br><br>
+										
+										
+										
 
 									</div>
 
@@ -336,103 +336,107 @@
 										Corporative Quote
 										<div class = "col-md-2">
 											<label for="aptnum">Number of Separate Tenant Companies  *</label>
-											<input required type="text" value="" class="form-control" name="corp_tenant_input" id="corporative_tenant_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_tenant_input" id="corporative_tenant_num">
 										</div>
 										<div class="col-md-2">
 											<label for="contact:project">Number of floors in the building  *</label>
-											<input required type="text" value="" class="form-control" name="corp_floor_input" id="corporative_floor_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_floor_input" id="corporative_floor_num">
 										</div>
 										<div class="col-md-2">
 											<label for="contact:project">Number of Basements  *</label>
-											<input required type="text" value="" class="form-control" name="corp_basement_input" id="corporative_basement_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_basement_input" id="corporative_basement_num">
 										</div>
 										<div class = "col-md-2">
 											<label for="aptnum">Number of parking spaces available  *</label>
-											<input required type="text" value="" class="form-control" name="corp_parking_input" id="corporative_parking_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_parking_input" id="corporative_parking_num">
 										</div>	
 										<div class="col-md-2">
 											<label for="contact:project">Maximum number of occupants by floor  *</label>
-											<input required type="text" value="" class="form-control" name="corp_occupancy_input" id="corporative_occupancy_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_occupancy_input" id="corporative_occupancy_num">
 										</div>
 										<br><br>
-										<div class="col-md-2">
-										<button type="submit" class="btn btn-primary" id='corporative-submit'><i class="fa fa-check"></i> SUBMIT</button>
-										</div>
+										
+											
+
+										
+										
+										
 									</div>
 
 									<div id = "Hybrid" class = "building_type">
 										Hybrid Quote
 										<div class = "col-md-2">
 											<label for="aptnum">Number of shops in the building  *</label>
-											<input required type="text" value="" class="form-control" name="hybr_shop_input" id="hybrid_shop_num">
+											<input min = 0 required type="number" value="" class="form-control" name="hybr_shop_input" id="hybrid_shop_num">
 										</div>
 										<div class="col-md-2">
 											<label for="contact:project">Number of floors in the building  *</label>
-											<input required type="text" value="" class="form-control" name="hybr_floor_input" id="hybrid_floor_num">
+											<input min = 0 required type="number" value="" class="form-control" name="hybr_floor_input" id="hybrid_floor_num">
 										</div>
 										<div class="col-md-2">
 											<label for="contact:project">Number of Basements  *</label>
-											<input required type="text" value="" class="form-control" name="hybr_basement_input" id="hybrid_basement_num">
+											<input min = 0 required type="number" value="" class="form-control" name="hybr_basement_input" id="hybrid_basement_num">
 										</div>
 										<div class = "col-md-2">
 											<label for="aptnum">Number of parking spaces available  *</label>
-											<input required type="text" value="" class="form-control" name="hybr_parking_input" id="hybrid_parking_num" >
+											<input min = 0 required type="number" value="" class="form-control" name="hybr_parking_input" id="hybrid_parking_num" >
 										</div>	
 										<div class="col-md-2">
 											<label for="contact:project">Maximum number of occupants by floor  *</label>
-											<input required type="text" value="" class="form-control" name="hybr_occupancy_input" id="hybrid_occupancy_num">
+											<input min = 0 required type="number" value="" class="form-control" name="hybr_occupancy_input" id="hybrid_occupancy_num">
 										</div>
 										<div class="col-md-2">
 											<label for="contact:project">Number of hours of building activity  *</label>
-											<input required type="text" value="" class="form-control" name="hybr_hours_input" id="hybrid_hours_num">
+											<input min = 0 required type="number" value="" class="form-control" name="hybr_hours_input" id="hybrid_hours_num">
 										</div>
 										<br><br>
-										<div class="col-md-2">
-										<button type="submit" class="btn btn-primary" id='hybrid-submit'><i class="fa fa-check"></i> SUBMIT</button>
-										</div>
+										
+										<br><br>										
 									</div>
-									<br><br>
 									
-									<br><br><br><br><br><br><br><br><br><br>
 
 
-									</div>
-									<div class="row">
-											<div class="col-md-12">
-												<label for="contact:attachment">File Attachment</label>
+									
+									
 
-												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
-												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
-
-											</div>
-									</div>
-
-									<div>
-										PLEASE CHOOSE ONE OF OUR PRODUCT RANGE PLAN:
-									</div>
-
-									<br><br><br>
+									
 								</fieldset>
-									<br><br><br>
+									
 								
 							</form>
 
 						</div>
 						<!-- /FORM -->
+						<div></div>
+						<p>Recommended number of Elevator: <input type = 'number' id = 'Recommended' disabled> </p><br><br><br>
+					</div>
+					<!--Radio Buttons-->
+						<div>
+							<p><strong>PLEASE CHOOSE ONE OF OUR PRODUCT RANGE PLAN: </strong></p>
+							<input type = 'radio' id = 'standard' name = Plan onchange = 'planStd()'>
+							<label for = 'button-standard'>Standard</label><br>
+							<input type = 'radio' id = 'premium' name = Plan onchange = 'planPrem()'>
+							<label for = 'button-standard'>Premium</label><br>
+							<input type = 'radio' id = 'excelium' name = Plan onchange = 'planEx()'>
+							<label for = 'button-standard'>Excelium</label><br>
+						</div>		
+						
+					<!--/Radio Buttons-->
 
-
+					<!--Quote Presentation-->
+						<div>
+							Cost By Elevator :  <input type = 'text' id = 'elevatorCost' disabled> <br><br>
+							Total cost for Elevators:  <input type = 'text' id = 'totalElevators' disabled> <br><br>
+							Installation Fee:  <input type = 'text' id = 'installFee' disabled> <br><br>
+							Total:  <input type = 'text' id = 'total' disabled><br><br>
+						</div>
 						
 
 					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<button type="submit" class="btn btn-primary" href="reindex.html#contact"><i class="fa fa-check"></i> CONTACT US</button>
-						</div>
-					</div>
+					<!-- /Quote Presentation -->
 				</div>
 			</section>
-			<!-- /QUOTE -->
+			
 
 
 
@@ -461,19 +465,7 @@
 						<div class="col-md-4">
 							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>
 
-							<!-- Newsletter Form -->
-							<p>Subscribe to Our Newsletter to get Important News & Offers</p>
-
-							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-							<!-- /Newsletter Form -->
+							<strong>www.codeboxx.biz</strong>
 
 
 						</div>
@@ -519,7 +511,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
-		<script src = "assets/js/quote.js";></script>	<!---Fichier créé pour le quote du site>`
+		<script src = "assets/js/quote.js";></script>	<!---Fichier créé pour le quote du site>
 		
 
 		<!-- REVOLUTION SLIDER -->

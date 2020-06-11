@@ -14,18 +14,3 @@
 //$(document).ready(function () {
   //  alert("you are going somewhere!")
 //});
-
-$(document).ready(function () {
-   var choiceSelect = document.getElementsByClassName('building_type').value;
-   console.log(choiceSelect);
-     if (choiceSelect == 'Residential-choice') {
-     $('#Residential').show();
-   } else if (choiceSelect == 'Commercial-choice') {
-     $('#Commercial').show();
-   }else if (choiceSelect == 'Corporative-choice') {
-     $('#Corporative').show();
-   }else if (choiceSelect == 'Hybrid-choice') {
-     $('#Hybrid').show();
-   }
- });
- 

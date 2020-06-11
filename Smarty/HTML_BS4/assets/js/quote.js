@@ -1,92 +1,280 @@
 
+//hides all the div that have a 'building_type' class when the page is loading
 $('.building_type').hide();
-//hides all the div that have a 'building_type' class
 
+//fonction to dynamically change the inputs of building-type:
 $(document).ready(function () {
-    var choiceSelect = document.getElementsByClassName('building_type').value;
-    console.log(choiceSelect);
-      if (choiceSelect == 'Residential-choice') {
-      $('#Residential').innerText.show();
-    } else if (choiceSelect == 'Commercial-choice') {
-      $('#Commercial').show();
-    }else if (choiceSelect == 'Corporative-choice') {
+    $('#selectMe').change(function(){
+      var choiceSelect = document.getElementById('selectMe').value;
+      
+      if (choiceSelect == '0'){
+        $('#Residential').hide();
+        $('#Commercial').hide();
+        $('#Corporative').hide();
+        $('#Hybrid').hide();
+    } else if (choiceSelect == 'residential') {
+        $('#Residential').show();
+        $('#Commercial').hide();
+        $('#Corporative').hide();
+        $('#Hybrid').hide();
+    } else if (choiceSelect == 'commercial') {
+        $('#Commercial').show();
+        $('#Residential').hide();
+        $('#Corporative').hide();
+        $('#Hybrid').hide();
+    } else if (choiceSelect == 'corporative') {
         $('#Corporative').show();
-    }else if (choiceSelect == 'Hybrid-choice') { 
-         $('#Hybrid').show();
+        $('Residential').hide();
+        $('#Commercial').hide();
+        $('#Hybrid').hide();
+      
+    } else if (choiceSelect == 'hybrid') { 
+        $('#Hybrid').show();
+        $('#Residential').hide();
+        $('#Commercial').hide();
+        $('#Corporative').hide();
     }
+  })    
   });
-//shows on chrome console as a HTML collection (not an array). Is it my problem? change it into an array??
 
-  //Quote calculations to put in the button submit for each building-type
-  // Make a radio button inside a popup = (quote?).modal and (inside the html?).modal-content DUNNO
-  // saw the way of making one on #questions of slack...copy paste the method? Not with friday's warning...
+ //Residential Input Section
+ //#Residential = div id of the Residential Section
+ //#aptnum = id of the input from the client to the question 'How many apt'
+ //#residential_floor_num = id of the input to question 'How many floors'
+ //#residential_basement_num = id of the input to question 'How many basements' USELESS in that situation
+ $(document).ready(function () {
+    $('#Residential').change(function(){
+      var $aptnum = $('#aptnum').val();
+      var $resfloor = $('#residential_floor_num').val();
 
+      var $XFloor = Math.ceil($aptnum/($resfloor * 6));
 
-  //Residential   NEED TO COME BACK LATER YOU LOOSING TIME!!! rapport avec (n; n<length,; n++) pour +sieurs shaft or jQuery *.each() pr faire un loop
+      var $columns = Math.ceil($resfloor/20);
 
-  var mean = $('aptnum')/$('residential_floor_num');
-  var total1 = 0 ;          //will contain the result of '20 or less' so 1 shaft
-  var total2 = 0 ;          //will contain the result of the 'if more than 20' so 2 shaft
-  var n = 0;           //what if we have 100 floors...I can't make a variable forever! NOT WORKING THE WAY I DO IT
-//put function involving the value of var mean "('*')function('mean'){} " and put the following in fonction -->
-  if ('mean' > 20) {
-        println(total1);        // I know its not println but some jQuery fnct still have to figure this out
-  };//2 times de number of shaft
-  if ('mean' <= 20){            // single shaft
-        println(total1)*2
-    };
-  //Commercial
+      var $elevNumber = ($XFloor) * ($columns);
 
-  var commValue = $('commercial_shaft_num');        //number the client inputed is the number of shaft proposed
+      //showing the values on readonly cases when the radio button is clicked
+      if ($('#standard').is(':checked')){
+        planStd();
+      }else if ($('#premium').is(':checked')){
+        planPr();
+      }else if ($('#excelium').is(':checked')){
+        planEx();
+      }
 
-  //Corporative
+    //Sending the $elevNumber to the 'cost by elevator' read-only case 
+     $('#Recommended').val($elevNumber);
+    })
+ });
 
-  var corpTotalOcc = $('corporative_occupancy_num')*$('corporative_floor_num'+'corporative_basement_num');
-  var corpshaftNum = corpTotalOcc/1000;
-  var corpColumn = ($('corporative_floor_num'+ 'corporative_basement_num')/20);
-  var corpShaftInColumn = corpshaftNum/corpColumn;
-  var CorpTotal = corpShaftInColumn * corpColumn;
-  $('CorpTotal').show();                               //same comment as hybrid so are residential total and commercial value
+ //Commercial Input Section
+ //#Commercial = id of the div Commercial Section
+ //#commercial_shaft_num = shaft input id
+ $('#Commercial').change(function () { 
+      var $shaftNum = $('#commercial_shaft_num').val();
+      //showing the values on readonly cases when the radio button is clicked
+      if ($('#standard').is(':checked')){
+        planStd();
+      }else if ($('#premium').is(':checked')){
+        planPr();
+      }else if ($('#excelium').is(':checked')){
+        planEx();
+      }
+     //Sending the $shaftNum to the 'cost by elevator' read-only case 
+      $('#Recommended').val($shaftNum);
+ })
+
+ //Corporative Input Section
+ //#Corporative = div id for Corporative Section
+ //#corporative_floor_num = floor input id
+ //#corporative_basement_num = basement input id
+ //#corporative_occupancy_num = occupancy input id
+$('#Corporative').change(function(){
+    var $floorCo = $('#corporative_floor_num').val();
+    var $basementCo = $('#corporative_basement_num').val();
+    var $occCo = $('#corporative_occupancy_num').val();
+
+    var $elevCo = Math.ceil($occCo *($floorCo + $basementCo) /1000);
+    var $columnCo = Math.ceil(($floorCo + $basementCo)/20);
+    var $elevByColumnCo = Math.ceil($elevCo/$columnCo);
+    var $totalElevCo = $elevByColumnCo * $columnCo;
+
+    //showing the values on readonly cases when the radio button is clicked
+    if ($('#standard').is(':checked')){
+      planStd();
+    }else if ($('#premium').is(':checked')){
+      planPr();
+    }else if ($('#excelium').is(':checked')){
+      planEx();
+    }
+
+    //Sending the $shaftNum to the 'cost by elevator' read-only case 
+    $('#Recommended').val($totalElevCo);
+
+})
+
+ //Hybrid Input Section
+ //#Hybrid = div id for Hybrid Section
+ //#hybrid_floor_num = floor input id
+ //#hybrid_basement_num = basement input id
+ //#hybrid_occupancy_num = occupancy input id
+ $('#Hybrid').change(function(){
+   var $floorHy = $('#hybrid_floor_num').val();
+   var $basementHy = $('#hybrid_basement_num').val();
+   var $occHy = $('#hybrid_occupancy_num').val();
+
+   var $elevHy = Math.ceil($occHy *($floorHy + $basementHy) /1000);
+   var $columnHy = Math.ceil(($floorHy + $basementHy)/20);
+   var $elevByColumnHy = Math.ceil($elevHy/$columnHy);
+   var $totalElevHy = $elevByColumnHy * $columnHy;
+
+   //showing the values on readonly cases when the radio button is clicked
+   if ($('#standard').is(':checked')){
+    planStd();
+  }else if ($('#premium').is(':checked')){
+    planPr();
+  }else if ($('#excelium').is(':checked')){
+    planEx();
+  }
+
+  //Showing the $shaftNum to the 'cost by elevator' read-only case 
+  $('#Recommended').val($totalElevHy);
+
   
-  //Hybrid
+ })
+
+ //Radio Button Selected Standard
+ //standard plan  
+ //#elevatorCost  
+ //#totalElevators  
+ //#installFee 
+ //#total  
+function planStd(){
+  console.log('standard plan')
+  var $std = $('#Recommended').val();
+  console.log($std)
+  var $stdElevCost = 7565;
+  console.log($stdElevCost)
+//showing the $std to the 'Cost by elevators' case plus $
+$('#elevatorCost').val($stdElevCost.toFixed(2));
+document.getElementById('elevatorCost').value =  document.getElementById('elevatorCost').value + '$';
+
+var $stdInstall = parseInt($std * 7565);
+console.log($stdInstall)
+ $stdFee =  ($stdInstall * 0.1);
+ $stdTotal = ($stdInstall + $stdFee);
+
+//showing the $stdInstall to the 'Total cost for elevators' case plus $
+$('#totalElevators').val($stdInstall.toFixed(2));
+document.getElementById('totalElevators').innerHtml =  $stdInstall + '$';
+
+
+//showing the $stdFee to the 'Install Fee' case plus $
+$('#installFee').val($stdFee.toFixed(2));
+document.getElementById('installFee').innerHTML =  $stdFee + '$';
+
+//showing the $stdTotal to the 'Total ' case plus $
+$('#total').val($stdTotal.toFixed(2));
+document.getElementById('total').innerHTML =  $stdTotal + '$';
+
+
+};
  
-  var hybrTotalOcc = $('hybrid_occupancy_num')*$('hybrid_floor_num'+'hybrid_basement_num');
-  var hybrshaftNum = hybrTotalOcc/1000;
-  var hybrColumn = ($('hybrid_floor_num'+ 'hybrid_basement_num')/20);
-  var hybrShaftInColumn = hybrShaftNum/hybrColumn;
-  var hybrTotal = hybrShaftInColumn * hybrColumn;
-  $('hybrTotal').show();                            //but in the popup1 with the radio button choice underneath once the radio button is done
+ //Radio Button Selected Premium
+ //premium plan  
+ //#elevatorCost  
+ //#totalElevators  
+ //#installFee 
+ //#total  
+ function planPrem(){
+  console.log('standard plan')
+  var $prem = $('#Recommended').val();
+  console.log($prem)
+  var $premElevCost = 12345;
+  console.log($premElevCost)
+//showing the $std to the 'Cost by elevators' case plus $
+$('#elevatorCost').val($premElevCost.toFixed(2));
+document.getElementById('elevatorCost').value =  document.getElementById('elevatorCost').value + '$';
+
+var $premInstall = parseInt($prem * 12345);
+console.log($premInstall)
+ $premFee =  ($premInstall * 0.13);
+ $premTotal = ($premInstall + $premFee);
+
+//showing the $premInstall to the 'Total cost for elevators' case plus $
+$('#totalElevators').val($premInstall.toFixed(2));
+document.getElementById('totalElevators').innerHtml =  $premInstall + '$';
 
 
-  //get a popup2 page with the radio button when the fields are completed and the radio button submit is clicked (standard/premium/excelliu
-  
-  //if ('standard-button') is pressed:
-  var residStandard = ('dunno') ;
-  var commStandard = ('commValue' * 7565)
-  var corpoStandard = ('corpTotal' * 7565);
-  var hybridStandard = ('hybrTotal' * 7565);
-  //var pctStandard to create ('var *Standard * 0.1)+ "value of the var *Standard"
+//showing the $premFee to the 'Install Fee' case plus $
+$('#installFee').val($premFee.toFixed(2));
+document.getElementById('installFee').innerHTML =  $premFee + '$';
 
-  //if ('premium') is pressed:
+//showing the $premTotal to the 'Total ' case plus $
+$('#total').val($premTotal.toFixed(2));
+document.getElementById('total').innerHTML =  $premTotal + '$';
 
-  var residPremium = ('dunno');
-  var commPremium = ('commValue' * 12345);
-  var corpoPremium = ('corpTotal'* 12345);
-  var hybridPremium = ('hybrid' * 12345);
-//var pctPremium to create ('var *Premium * 0.1)+ "value of the var *Premium"
 
-  //if ('excelium') is pressed:
+};
 
-  var residExcel = ('dunno');
-  var commExcel = ('commValue' * 15400);
-  var corpoExcel = ('corpTotal' * 15400);
-  var hybridExcel = ('hybridTotal' * 15400);
+//Radio Button Selected Excelium
+ //standard plan  
+ //#elevatorCost  
+ //#totalElevators  
+ //#installFee 
+ //#total  
+ function planEx(){
+  console.log('excelium plan')
+  var $ex = $('#Recommended').val();
+  console.log($ex)
+  var $exElevCost = 15400;
+  console.log($exElevCost)
+//showing the $std to the 'Cost by elevators' case plus $
+$('#elevatorCost').val($exElevCost.toFixed(2));
+document.getElementById('elevatorCost').value =  document.getElementById('elevatorCost').value;
 
-  
-  //button SEE QUOTE to ADD at the end of the popup2
+var $exInstall = parseInt($ex * 15400);
+console.log($exInstall)
+ $exFee =  ($exInstall * 0.16);
+ $exTotal = ($exInstall + $exFee);
 
-  //final popup that shows in read only the final quote
-  
+//showing the $premInstall to the 'Total cost for elevators' case 
+$('#totalElevators').val($exInstall.toFixed(2));
+document.getElementById('totalElevators').innerHtml =  $exInstall;
+
+
+//showing the $premFee to the 'Install Fee' case plus $
+$('#installFee').val($exFee.toFixed(2));
+document.getElementById('installFee').innerHTML =  $exFee + '$';
+
+//showing the $premTotal to the 'Total ' case plus $
+$('#total').val($exTotal.toFixed(2));
+document.getElementById('total').innerHTML =  $exTotal + '$';
+
+
+
+
+};
+
+
 
   
  
+ 
+ 
+ 
+ 
+
+
+  
+  
+
+
+  
+  
+   
+  
+
+  
+
+  

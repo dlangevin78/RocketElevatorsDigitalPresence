@@ -286,15 +286,15 @@
 										Residential Quote
 										<div class = "col-md-2">
 											<label for="aptnum">Number of appartements  *</label>
-											<input min = 0 required type="number" placeholder="0" class="form-control" name="res_apt_input" id="aptnum">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="res_apt_input" id="aptnum" oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class="col-md-2">
 											<label for="floornum">Number of floors in the building  *</label>
-											<input min = 0 required type="number" placeholder="0" class="form-control" name="res_floor_input" id="residential_floor_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="res_floor_input" id="residential_floor_num" oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class="col-md-2">
 											<label for="basementnum">Number of Basements  *</label>
-											<input  min = 0 required type="number" placeholder="0" class="form-control" name="res_basement_input" id="residential_basement_num">
+											<input  min = 0 required type="number" placeholder="0" class="form-control" name="res_basement_input" id="residential_basement_num" oninput="this.value = Math.abs(this.value)">
 										</div>
 										
 										<br><br>
@@ -305,23 +305,23 @@
 										Commercial Quote
 										<div class = "col-md-2">
 											<label for="shopnum">Number of shops in the building  *</label>
-											<input  min = 0 required type="number" placeholder="0" class="form-control" name="com_shop_input" id="commercial_shop_num">
+											<input  min = 0 required type="number" placeholder="0" class="form-control" name="com_shop_input" id="commercial_shop_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class="col-md-2">
 											<label for="floornum">Number of floors in the building  *</label>
-											<input  min = 0 required type="number" placeholder="0" class="form-control" name="com_floor_input" id="commercial_floor_num">
+											<input  min = 0 required type="number" placeholder="0" class="form-control" name="com_floor_input" id="commercial_floor_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class="col-md-2">
 											<label for="basementnum">Number of Basements  *</label>
-											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_basement_input" id="commercial_basement_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_basement_input" id="commercial_basement_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class = "col-md-2">
 											<label for="parkingnum">Number of parking spaces available  *</label>
-											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_parking_input" id="commercial_parking_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_parking_input" id="commercial_parking_num"oninput="this.value = Math.abs(this.value)">
 										</div>	
 										<div class="col-md-2">
 											<label for="shaftnum">Number of elevator shaft to deploy  *</label>
-											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_shaft_input" id="commercial_shaft_num">
+											<input min = 0 required type="number" placeholder="0" class="form-control" name="com_shaft_input" id="commercial_shaft_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<br><br>
 										
@@ -336,23 +336,23 @@
 										Corporative Quote
 										<div class = "col-md-2">
 											<label for="aptnum">Number of Separate Tenant Companies  *</label>
-											<input min = 0 required type="number" value="" class="form-control" name="corp_tenant_input" id="corporative_tenant_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_tenant_input" id="corporative_tenant_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class="col-md-2">
 											<label for="contact:project">Number of floors in the building  *</label>
-											<input min = 0 required type="number" value="" class="form-control" name="corp_floor_input" id="corporative_floor_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_floor_input" id="corporative_floor_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class="col-md-2">
 											<label for="contact:project">Number of Basements  *</label>
-											<input min = 0 required type="number" value="" class="form-control" name="corp_basement_input" id="corporative_basement_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_basement_input" id="corporative_basement_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<div class = "col-md-2">
 											<label for="aptnum">Number of parking spaces available  *</label>
-											<input min = 0 required type="number" value="" class="form-control" name="corp_parking_input" id="corporative_parking_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_parking_input" id="corporative_parking_num"oninput="this.value = Math.abs(this.value)">
 										</div>	
 										<div class="col-md-2">
 											<label for="contact:project">Maximum number of occupants by floor  *</label>
-											<input min = 0 required type="number" value="" class="form-control" name="corp_occupancy_input" id="corporative_occupancy_num">
+											<input min = 0 required type="number" value="" class="form-control" name="corp_occupancy_input" id="corporative_occupancy_num"oninput="this.value = Math.abs(this.value)">
 										</div>
 										<br><br>
 										
